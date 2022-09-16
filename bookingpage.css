@@ -1,0 +1,38 @@
+.navbar {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    background-color: #333;
+    overflow: hidden;
+    position: sticky;
+    top: 0;
+}
+
+li {
+    display: inline;
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 12px 14px;
+    text-decoration: none;
+}
+
+li a:hover {
+    background-color: #111;
+}
+
+.currentpage {
+    background-color: crimson;
+}
+
+h1 {
+    text-align: center;
+}
+
+.indent {
+    margin: 40px;
+}
