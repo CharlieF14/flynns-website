@@ -89,3 +89,30 @@ console.log(k);
 
 let i = 6;
 console.log(--i);
+
+
+/*Comparison opperators */
+
+//Equals == 
+console.log(5 == 3);    //Will return False
+console.log(4 == 4);    //Will return True
+
+//Not Equals !=
+console.log(5 != 3);    //Will return True
+console.log(4 != 4);    //Will retunr False
+
+//Greater than >
+console.log(5 > 4);     //Will return True
+console.log(4 > 5);     //Will return False
+
+//Less than <
+console.log(4 < 5);     //Will retunr True
+console.log(5 < 4);     //Will return False
+
+//Greater than or equal to >=
+console.log(5 >= 4);
+console.log(4 >= 5);
+
+//Less than or equal to <=
+console.log(5 <= 4);
+console.log(4 <= 50);
