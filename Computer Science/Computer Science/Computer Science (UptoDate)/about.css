@@ -1,0 +1,84 @@
+﻿.navbar {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    background-color: #333;
+    overflow: hidden;
+    position: sticky;
+    top: 0;
+}
+
+li {
+    display: inline;
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 12px 14px;
+    text-decoration: none;
+}
+
+li a:hover {
+    background-color: #111;
+}
+
+.currentpage {
+    background-color: crimson;
+}
+
+h1 {
+    text-align: center;
+}
+
+h2 {
+    text-align: center;
+}
+
+.concerts {
+    font-size: larger;
+}
+
+.about {
+    font-size: larger;
+    text-align: center;
+}
+
+.about2 {
+    font-size: small;
+    text-align: center;
+    position: sticky;
+    bottom: 0;
+}
+
+.centred {
+    text-align: center;
+}
+
+.border {
+    border-width: 8px;
+    border-color: crimson;
+    border-style: solid;
+    width: 450px;
+    height: 400px;
+}
+
+.border2 {
+    border-width: 2px;
+    border-color: crimson;
+    border-style: groove;
+    width: 350px;
+    height: 300px;
+}
+
+.leftimg {
+    text-align: left;
+    display: inline;
+    float: left;
+}
+
+.rightimg {
+    text-align: right;
+}
