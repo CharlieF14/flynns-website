@@ -36,3 +36,22 @@ do{
     star = star + logufdasgogeshgd;
     
 }while(row != userRow);
+
+//Question 5
+let digitNo = Number(prompt("Please enter a number")); 
+let digits = 0;
+while(digitNo > 0){
+    digitNo = Math.floor(digitNo / 10);
+    digits++;
+}
+console.log(digits);
+
+//Question 6
+let userInput = Number(prompt("Please input a number for which the digits will be added"));
+let digit = 0;
+let Input = userInput;
+while(userInput > 0){
+    userInput = Math.floor(userInput / 10);
+    digit = digit + userInput;
+}
+console.log(digit);
