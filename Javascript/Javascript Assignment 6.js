@@ -1,7 +1,7 @@
 /*Javascript Assignment 6*/
 
 //Question 1
-/*let count = 1;
+let count = 1;
 while(count <= 10){
     console.log(count);
     count++;
@@ -44,7 +44,7 @@ while(digitNo > 0){
     digitNo = Math.floor(digitNo / 10);
     digits++;
 }
-console.log(digits);*/
+console.log(digits);
 
 //Question 6
 let userInput = Number(prompt("Please input a number for which the digits will be added"));
