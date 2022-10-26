@@ -61,7 +61,6 @@ userNo = Math.floor(userNo / 10);
 let num1 = Number(prompt("Enter a number"));
 let num2 = Number(prompt("Enter another number"));
 let max = Math.max(num1, num2);
-//console.log(max);
 while(true){
     if(max%num1==0 && max%num2==0){
         console.log("The LCM of your numbers is",max);
