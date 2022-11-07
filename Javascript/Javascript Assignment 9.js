@@ -30,7 +30,6 @@ for(let n1=Input; n1>0; n1=n1-1){
     ans = ans * n1;
     console.log(ans);
 }
-//console.log(total);
 total = total + ans;
 ans = 1;
 }
@@ -39,7 +38,6 @@ if (total == factorial){
 }else{
     console.log(factorial, "is not a strong number");
 }
-//console.log(ans);
 
 //Question 3
 let userNo = Number(prompt("Please enter a number"));
