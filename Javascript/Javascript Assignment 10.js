@@ -41,23 +41,36 @@
 // }document.write("<pre>");
 
 //Question 4
-let userRow3 = Number(prompt("How many rows do you want?"));
-let userCollumn3 = userRow3;
-//let b = userRow3 - b + 1;
+// let userRow3 = Number(prompt("How many rows do you want?"));
+// //let userCollumn3 = userRow3;
+// //let b = userRow3 - b + 1;
+// document.write("<pre>");
+// for(let row3 = 0; row3 < userRow3; row3++){
+//     for(let y = 0; y < userRow3; y++){
+//         if (row3 == 0 || row3 == userRow3 - 1 || y == 0 || y == userRow3 - 1 || row3 == y || y == userRow3 - row3 - 1) {
+//             document.write("* ");
+//         } else {
+//             document.write("  ");
+//     }
+//     }
+//     document.write("<br/>");
+// }document.write("<pre>");
+
+//Question 5
+let userRow4 = Number(prompt("How many rows do you want?"));
+let userCollumn4 = userRow4;
+//let blank = "&nbsp";
 document.write("<pre>");
-for(let row3 = 0; row3 != userRow3; row3++){
-    if(row3 == 0|| row3 == userRow3 - 1){
-        for (let o =0; o<userCollumn3; o++){
-            document.write("*");
-        }
-    }else{
-        for(r=0; r < userCollumn3; ){
-            if(r == 0 || r == userCollumn3 - 1){
-                document.write("*");
-            }
-            document.write("&nbsp");
-            r++;
+for(let row4 = 0; row4 != userRow4; row4++){
+    for (let spaces = userRow4 - 1; spaces > 0; spaces = spaces - 1){
+        if (spaces == 1){
+            document.write("* ")
+        }else{
+        document.write("  ");
         }
     }
-    document.write("<br/>");
-}document.write("<pre>");
+    for(let collumn4 = 0; collumn4 != userCollumn4; collumn4++){
+        document.write("*");
+        }document.write("<br>");
+}document.write("<br>");
+document.write("<pre>");

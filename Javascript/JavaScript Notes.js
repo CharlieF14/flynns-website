@@ -333,3 +333,32 @@ for(;m<2;){
   console.log("hello", m);
   m++;
 }
+
+//IFINITE LOOP - DONT RUN THIS
+//for(;;){
+
+//}
+
+//BREAK STATEMENT
+let d = 0;
+document.write("Entering loop:<br>");
+while(d<20){
+  d = d + 1;
+  if(d==5){
+    break;                                  //Will stop at this command
+  }
+  document.write(d+"<br>");
+}
+document.write("Leaving Loop:<br>");
+
+//CONTINUE STATEMENT
+let d1 = 0;
+document.write("Entering loop:<br>");
+while(d<20){
+  d1 = d1 + 1;
+  if(d1==5){
+    continue;                               //Will skip this one command
+  }
+  document.write(d1+"<br>");
+}
+document.write("Leaving Loop:<br>");
