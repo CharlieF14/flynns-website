@@ -296,7 +296,8 @@ do{
 }while(count<20);
 
 
-/* For Loops
+              /* For Loops */
+/*
 for (initialization; test condition; increment statement){
 
   CODE IN HERE WILL RUN IF THE TEST CONDITION IS TRUE
@@ -333,3 +334,56 @@ for(;m<2;){
   console.log("hello", m);
   m++;
 }
+
+
+
+              /* Arrays */
+/*
+The array object allows you to store multiple
+values in a single variable.
+It stores a fixed size, sequential collection
+of elements of the same or mixed type
+*/
+
+//To create an array
+let myArray = new Array("apples", "oranges");
+let myArray2 = ["apples", "oranges"];
+
+//To access elements of an array we use indexing.
+//Indexing is when you type the array name followed
+//by square brackets. The number you put between
+//the square brackets the number of the element
+//in the array you wish the access.
+
+//All arrays start with index value 0
+document.write(myArray2[0]);  //This prints apples
+document.write(myArray2[1]);  //This prints oranges
+
+//To change an array element
+//use indexing to locate the element and then
+//an assignment operation to assign a new value
+myArray2[0]= "Lemon";
+document.write(myArray2[0]);
+document.write("<br>");
+//Very Important
+document.write(myArray2);
+myArray2[10] = "test";
+document.write(myArray2);
+
+//To add elements to an array you can us the
+//Push Command. They will be pushed onto the 
+//end of the array.
+
+myArray2.push("Lime");
+
+//To remove the last element from an array you
+//can use the Pop Command
+
+myArray2.pop();  //This removes the last element
+
+//To create an empty array you can use
+//the new Array() command or a pair of empty
+//square brackets
+
+let myArray3 = new Array();
+let myArray4 = [];
