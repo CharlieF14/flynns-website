@@ -387,3 +387,13 @@ myArray2.pop();  //This removes the last element
 
 let myArray3 = new Array();
 let myArray4 = [];
+
+//To use a for loop to access the array elements
+//To add elements using a for loop
+for(let i = 0; i<10; i++){
+  myArray4[i]=i;
+}
+document.write("<br>");
+document.write(myArray4);
+document.write("<br>");
+document.write(myArray4.length);  //tells the number of items in the array
