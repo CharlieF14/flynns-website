@@ -370,7 +370,7 @@ document.write(myArray2);
 myArray2[10] = "test";
 document.write(myArray2);
 
-//To add elements to an array you can us the
+//To add elements to an array you can use the
 //Push Command. They will be pushed onto the 
 //end of the array.
 
