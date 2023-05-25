@@ -1,0 +1,130 @@
+.navbar {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    background-color: #333;
+    overflow: hidden;
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    border-radius: 5px;
+    font-family: Calibri;
+}
+
+li {
+    display: inline;
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 12px 14px;
+    text-decoration: none;
+}
+
+li a:hover {
+    background-color: #111;
+}
+
+.currentpage {
+    background-color: crimson;
+}
+
+body {
+    box-sizing: border-box;
+    background-image: url("https://images.pexels.com/photos/1666021/pexels-photo-1666021.jpeg?cs=srgb&dl=conifers-countryside-daylight-1666021.jpg&fm=jpg");
+    min-height: 850px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+.submitButton {
+    border-radius: 7px;
+    background-color: crimson;
+    color: white;
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    opacity: 0.9;
+}
+
+.submitButton:hover {
+    background-color: #111;
+}
+
+.submitButton:focus{
+    width: 100%;
+}
+
+#sg1 label {
+    float: right;
+}
+
+label{
+    font-family: Calibri;
+}
+
+input {
+    display: inline;
+    width: 200px;
+    border-style: solid;
+    transition: width 0.4s ease-in-out;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 5px 0 22px 0;
+    border: none;
+    background: #f1f1f1;
+}
+
+input:focus {
+    background-color: #ffd7d7;
+    width: 250px;
+}
+
+input:hover {
+    background-color: lightgray;
+}
+
+form {
+    position: absolute;
+    left: 30%;
+    margin: 20px;
+    max-width: 700px;
+    padding: 35px;
+    background-color: white;
+    border-radius: 5px;
+    font-family: Calibri;
+}
+
+.green {
+    background-color: lightgreen;
+}
+
+.red {
+    background-color: lightcoral;
+}
+
+.yellow {
+    background-color: yellow;
+}
+.insp {
+    background-color: white;
+    border-radius: 5px;
+    font-family: Calibri;
+    margin: 20px;
+    padding: 35px;
+    max-width: 500px;
+}
+
+.img {
+    width:40%;
+}
+
+.inv {
+    color: white;
+}

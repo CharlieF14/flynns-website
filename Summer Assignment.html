@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Summer Assignment</title>
+        <link type="text/css" href="summerAssignmentStyle.css" rel="stylesheet"/>
+    </head>
+    <body>
+        <p>
+            <ul class="navbar">
+                <li class="currentpage"><a href="Summer Assignment.html">Credit Card Check</a></li>
+                <li><a href="references.html">References Page</a></li>
+            </ul>
+        </p>
+        <script>
+            function backgroundColourGreen() {
+                var element = document.getElementById("bgColour");
+                element.classList.add("green");
+            }
+            function backgroundColourRed() {
+                element = document.getElementById("bgColour");
+                element.classList.add("red");
+            }
+            function backgroundColourYellow() {
+                element = document.getElementById("bgColour");
+                element.classList.add("yellow");
+            }
+            function CC_Checker() {
+                var Credit_C = document.getElementById("CC_No");
+                if (document.getElementById("name1").value == "") {
+                    alert("Please enter your First Name.");
+                    return false;
+                }
+                else if (document.getElementById("name2").value == "") {
+                    alert("Please enter your Last Name.");
+                    return false;
+                }
+                else if (document.getElementById("email1").value == "") {
+                    alert("Please enter your Email.");
+                    return false;
+                }
+                else if (document.getElementById("address1").value == "") {
+                    alert("Please enter your Address Line 1.");
+                    return false;
+                }
+                else if (document.getElementById("address2").value == "") {
+                    alert("Please enter your Address Line 2.");
+                    return false;
+                }
+                else if (document.getElementById("address3").value == "") {
+                    alert("Please enter your City.");
+                    return false;
+                }
+                else if (document.getElementById("address4").value == "") {
+                    alert("Please enter your County.");
+                    return false;
+                }
+                else if (document.getElementById("address5").value == "") {
+                    alert("Please enter your Postcode.");
+                    return false;
+                }
+                else if (document.getElementById("c_number").value == "") {
+                    alert("Please enter your Contact Number.");
+                    return false;
+                }
+                else if (document.getElementById("CC_No").value == "") {
+                    alert("Please enter a Credit Card Number");
+                    return false;
+                } else if (document.getElementById("cvc_number").value == "") {
+                    alert("Please enter your Cards CVC Number.");
+                    return false;
+                } else if (document.getElementById("expiry_date").value == "") {
+                    alert("Please enter your Cards Expiry Date.");
+                    return false;
+                } else {
+                    alert("Form Submitted");
+                    var creditCard = Credit_C.value;
+                    var lastDigit = creditCard % 10;
+                    creditCard = Math.floor(creditCard / 10);
+                    var dig = 0;
+                    var sum = 0;
+                    var valid = 0;
+                    var check = 0;
+                    CC_array = [];
+                    while (creditCard > 0) {
+                        digit = (creditCard % 10);
+                        creditCard = Math.floor(creditCard / 10);
+                        CC_array.push(digit);
+                    }
+                    for (i = 0; i < CC_array.length; i++) {
+                        var j = i % 2;
+                        if (j == 0) {
+                            if ((CC_array[i] * 2) > 9) {
+                                dig = (CC_array[i] * 2) - 9;
+                            } else {
+                                dig = CC_array[i] * 2;
+                            }
+                        } else {
+                            dig = CC_array[i];
+                        }
+                        sum = sum + dig;
+                    }
+                    sum = sum + lastDigit;
+                    valid = sum % 10
+                    if (valid == 0) {
+                        alert("Your card is valid");
+                        if ((CC_array[CC_array.length - 1] == 4) && (CC_array.length == 15 || 12)) {
+                            alert("Your card is a Visa");
+                            backgroundColourGreen();
+                            return false;
+                        }
+                        else if ((CC_array[CC_array.length - 1] == 3 && CC_array[CC_array.length - 2] == 4 || 7) && (CC_array.length == 14)) {
+                            alert("Your card is an American Express Card");
+                            backgroundColourGreen();
+                            return false;
+                        }
+                        else if ((((CC_array[CC_array.length - 1] == 5) && (CC_array[CC_array.length - 2] == 1 || 2 || 3 || 4 || 5)) || ((CC_array[CC_array.length - 1] == 2) && (CC_array[CC_array.length - 2] == 2 || 3 || 4 || 5 || 6 || 7) && (CC_array[CC_array.length - 3] == 0 || 1 || 2 || 3 || 4 || 5 || 6 || 7 || 8 || 9) && (CC_array[CC_array.length - 4] == 0 || 1 || 2 || 3 || 4 || 5 || 6 || 7 || 8 || 9))) && (CC_array.length == 15)) {
+                            if ((CC_array[CC_array.length - 1] == 5) && (CC_array[CC_array.length - 2] == 1 || 2 || 3 || 4 || 5)) {
+                                alert("Your card is a Mastercard");
+                                backgroundColourGreen();
+                                return false;
+                            } else {
+                                for (k = 1; k <= 4; k++) {
+                                    check = (check * 10) + CC_array[CC_array.length - k];
+                                }
+                                if (check < 2221 || check > 2720) {
+                                    alert("Unknown card type!");
+                                    backgroundColourYellow();
+                                    return false;
+                                } else {
+                                    alert("Your card is a Mastercard");
+                                    backgroundColourGreen();
+                                    return false;
+                                }
+                            }
+                        }
+                        else if ((((CC_array[CC_array.length - 1] == 6) && CC_array[CC_array.length - 2] == 4 || 5) || ((CC_array[CC_array.length - 1] == 6) && (CC_array[CC_array.length - 2] == 0) && (CC_array[CC_array.length - 3] == 1) && CC_array[CC_array.length - 4] == 1) || (((CC_array[CC_array.length - 1] == 6) && (CC_array[CC_array.length - 2] == 2) && (CC_array[CC_array.length - 3] == 2) && (CC_array[CC_array.length - 4] == 1 || 2 || 3 || 4 || 5 || 6 || 7 || 8 || 9) && (CC_array[CC_array.length - 5] == 0 || 1 || 2 || 3 || 4 || 5 || 6 || 7 || 8 || 9) && (CC_array[CC_array.length - 6] == 0 || 1 || 2 || 3 || 4 || 5 || 6 || 7 || 8 || 9))) || (((CC_array[CC_array.length - 1] == 6) && (CC_array[CC_array.length - 2] == 2) && (CC_array[CC_array.length - 3] == 4 || 5 || 6) && (CC_array[CC_array.length - 4] == 0 || 1 || 2 || 3 || 4 || 5 || 6 || 7 || 8 || 9) && (CC_array[CC_array.length - 5] == 0 || 1 || 2 || 3 || 4 || 5 || 6 || 7 || 8 || 9) && (CC_array[CC_array.length - 6] == 0 || 1 || 2 || 3 || 4 || 5 || 6 || 7 || 8 || 9))) || ((CC_array[CC_array.length - 1] == 6 && CC_array[CC_array.length - 2] == 2) && (CC_array[CC_array.length - 3] == 8) && (CC_array[CC_array.length - 4] == 2 || 3 || 4 || 5 || 6 || 7 || 8) && (CC_array[CC_array.length - 5] == 0 || 1 || 2 || 3 || 4 || 5 || 6 || 7 || 8 || 9) && (CC_array[CC_array.length - 6] == 0 || 1 || 2 || 3 || 4 || 5 || 6 || 7 || 8 || 9))) && (CC_array.length == 16 || 17 || 18 || 19)) {
+                            if ((CC_array[CC_array.length - 1] == 6) && (CC_array[CC_array.length - 2] == 4 || 5)) {
+                                alert("Your card is a Discover card");
+                                alert("why");
+                                backgroundColourGreen();
+                                return false;
+                            } else if ((CC_array[CC_array.length - 1] == 6) && (CC_array[CC_array.length - 2] == 0) && (CC_array[CC_array.length - 3] == 1) && (CC_array[CC_array.length - 4] == 1)) {
+                                alert("Your card is a Discover card");
+                                backgroundColourGreen();
+                                return false;
+                            } else {
+                                for (k = 1; k <= 6; k++) {
+                                    check = (check * 10) + CC_array[CC_array.length - k];
+                                }
+                                if (check > 628899) {
+                                    alert("Unknown card type!");
+                                    backgroundColourYellow();
+                                    return false;
+                                } else if (check <= 628899 && check >= 628200) {
+                                    alert("Your card is a Discover card");
+                                    backgroundColourGreen();    
+                                    return false;
+                                } else if (check <= 626999 && check >= 624000) {
+                                    alert("Your card is a Discover card");
+                                    backgroundColourGreen();                                   
+                                    return false;
+                                } else if (check <= 622925 && check >= 622126) {
+                                    alert("Your card is a Discover card");
+                                    backgroundColourGreen();
+                                    return false;
+                                } else {
+                                    alert("Unknown card type!");
+                                    backgroundColourYellow();
+                                    return false;
+                                }
+                            }
+                        } else {
+                            alert("Unkown card type!");
+                            backgroundColourYellow();
+                            return false;
+                        }
+                    } else {
+                        alert("Your card is not valid");
+                        backgroundColourRed();
+                        return false;
+                    }
+                    sum = 0;
+
+                }
+            }
+        </script>
+        <div>
+            <form onsubmit="return CC_Checker()" id="bgColour">
+                <h1>Credit Card Checker</h1>
+                <label for="name1">First Name:</label>
+                <input type="text" id="name1" name="name1" placeholder="Enter First Name..">
+                <label for="name2">Last Name:</label>
+                <input type="text" id="name2" name="name2" placeholder="Enter Last Name..">
+                <br />
+                <label for="email1">Email:</label>
+                <input type="text" id="email1" name="email1" placeholder="Enter E-mail Address..">
+                <br />
+                <label for="address1">Address Line 1:</label>
+                <input type="text" id="address1" name="address1" placeholder="Enter House/Apartment/Suite..">
+                <br />
+                <label for="address2">Address Line 2:</label>
+                <input type="text" id="address2" name="address2" placeholder="Enter Area..">
+                <br />
+                <label for="address3">City:</label>
+                <input type="text" id="address3" name="address3" placeholder="Enter City/Town..">
+                <label for="address4">County:</label>
+                <input type="text" id="address4" name="address4" placeholder="Enter County..">
+                <br />
+                <label for="address5">Postcode:</label>
+                <input type="text" id="address5" name="address5" placeholder="Enter Postcode..">
+                <br />
+                <label for="c_number">Contact number:</label>
+                <input type="text" id="c_number" name="c_number" placeholder="Enter Contact Number..">
+                <br />
+                <label for="CC_No">Credit Card Number:</label>
+                <input type="text" id="CC_No" name="CC_No" placeholder="Enter Credit Card Number..">
+                <br />
+                <label for="cvc_number">Card CVC Number:</label>
+                <input type="text" id="cvc_number" name="cvc_number" placeholder="Enter CVC Number..">
+                <br />
+                <label for="expiry_date">Card Expiry Date:</label>
+                <input type="date" id="expiry_date" name="expiry_date" placeholder="Enter Expiry Date..">
+                <br />
+                <input class="submitButton" type='submit' value='Check Card' name='submit'>
+            </form>
+        </div>
+    </body>
+</html>
