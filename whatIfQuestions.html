@@ -1,0 +1,204 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>LC Project</title>
+    <link type="text/css" href="projectHomeStyle (1).css" rel="stylesheet" />
+</head>
+<body>
+    <div class="background"></div>
+    <div class="frontContent">
+        <p>
+            <ul class="navbar">
+                <li><a href="projectHome.html">Meeting The Brief</a></li>
+                <li><a href="investigation.html">Investigation</a></li>
+                <li><a href="planDesign.html">Plan & Design</a></li>
+                <li><a href="create.html">Create</a></li>
+                <li class="currentpage"><a href="whatIfQuestions.html">What-If Questions</a></li>
+                <li><a href="graphicalRepresentation.html">Graphed Data</a></li>
+                <li><a href="evaluation.html">Evaluation</a></li>
+            </ul>
+        </p>
+
+        <script type="module">
+            import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+
+            const firebaseConfig = {
+                apiKey: "AIzaSyC1SMgtN253hK35hD3JDqZWRgQJHNMLg1Y",
+                authDomain: "charlie-s-project-c04fe.firebaseapp.com",
+                databaseURL: "https://charlie-s-project-c04fe-default-rtdb.europe-west1.firebasedatabase.app",
+                projectId: "charlie-s-project-c04fe",
+                storageBucket: "charlie-s-project-c04fe.appspot.com",
+                messagingSenderId: "437715420506",
+                appId: "1:437715420506:web:51f13472cb9f2f48455f63",
+                measurementId: "G-R18CFPN6QT"
+            };
+
+            const app = initializeApp(firebaseConfig);
+
+
+            import { getDatabase, ref, onChildAdded } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js";
+
+            const db = getDatabase();
+            const dbRef = ref(db);
+            const commentsRef = ref(db, "hr_log/");
+
+            let workoutTime = 0;
+            let breakTime = 0;
+
+            let choice = parseInt(prompt("Please choose 1 or 2"));
+            let choice2 = 0;
+            let choice3 = 0;
+
+            if (choice == 1){
+                breakTime = Number(prompt("Please enter the length of your break in days:"));
+                while ((typeof breakTime) != "number"){
+                    breakTime = Number(prompt("Please enter the length of your break in days:"));
+                }
+                choice2 = Number(prompt("Would you like to run the other what-if question? Please enter '1' for 'yes' and '0' for 'no'."));
+                if (choice2 == 1){
+                    workoutTime = Number(prompt("Please enter the length of your last workout in minutes:"));
+                while ((typeof workoutTime) != "number"){
+                    breakTime = Number(prompt("Please enter the length of your last workout in minutes:"));
+                }
+                
+            
+            }
+            }
+            else if(choice == 2){
+                workoutTime = Number(prompt("Please enter the length of your last workout in minutes:"));
+                while ((typeof workoutTime) != "number"){
+                    breakTime = Number(prompt("Please enter the length of your last workout in minutes:"));
+                }
+                choice3 = Number(prompt("Would you like to run the other what-if question? Please enter '1' for 'yes' and '0' for 'no'."));
+                if (choice3 == 1){
+                breakTime = Number(prompt("Please enter the length of your break in days:"));
+                while ((typeof breakTime) != "number"){
+                    breakTime = Number(prompt("Please enter the length of your break in days:"));
+                }
+            }
+            }
+
+            
+            
+            let beatsPMavg = [];
+
+            onChildAdded(commentsRef, (data) => {
+                var gender = data.val().Gender;
+
+                beatsPMavg.push(data.val().BeatsPerMin);
+
+                if(choice == 1){
+                    whatIf1(gender, beatsPMavg, breakTime);
+                }
+                else if(choice == 2){
+                    whatIf2(gender, beatsPMavg, workoutTime);
+
+                }
+                
+                if (choice2 == 1){
+                    whatIf2(gender, beatsPMavg, workoutTime);
+                }
+
+                if (choice3 == 1){
+                    whatIf1(gender, beatsPMavg, breakTime);
+                }
+            });
+
+
+            //What-If Question 1
+            //What-If the user wished for a break
+            function whatIf1 (gender, beatsPM, breakTime){
+                let avgBPM = 0;
+                for (let i = 0; i< beatsPM.length; i++){
+                 avgBPM = beatsPM[i] + avgBPM;
+                }
+                avgBPM = avgBPM / beatsPM.length;
+                avgBPM = parseInt(avgBPM);
+                if (gender == 'male' || 'Male'){
+                    if (avgBPM <= 160){
+                        document.getElementById('wI1').innerHTML = "You are good to take a break, enjoy!";
+                    }
+                    else{
+                        if (breakTime <= 2){
+                            document.getElementById('wI1').innerHTML = "You are good to take a short break, enjoy!";
+                        }
+                        else{
+                            document.getElementById('wI1').innerHTML = "This will negatively affect your health, I recommend not taking that long of a break.";
+                        }
+                        
+                    }
+                }
+                else if (gender == 'female' || 'Female'){
+                    if (avgBPM <= 175){
+                        document.getElementById('wI1').innerHTML = "You are good to take a break, enjoy!";
+                    }
+                    else{
+                        if (breakTime <= 2){
+                            document.getElementById('wI1').innerHTML = "You are good to take a short break, enjoy!";
+                        }
+                        else{
+                            document.getElementById('wI1').innerHTML = "This will negatively affect your health, I recommend not taking that long of a break.";
+                        }
+                        
+                    }                   
+                }
+            };
+
+            //What-If Question 2
+            //What if the user wished for recovery time
+            function whatIf2(gender, beatsPM, workoutTime) {
+                let avgBPM = 0;
+                let recoveryTime = 0;
+                for (let i = 0; i < beatsPM.length; i++) {
+                    avgBPM = beatsPM[i] + avgBPM;
+                }
+                avgBPM = avgBPM / beatsPM.length;
+                avgBPM = parseInt(avgBPM);
+                recoveryTime = parseInt((avgBPM * workoutTime) / 200);
+
+                if (gender == 'male' || 'Male') {
+                    if (recoveryTime > 200) {
+                        document.getElementById('wI2').innerHTML = recoveryTime + " mins is your estimated recovery time. This is quite high, make sure to exercise more often!";
+                    }
+                    else {
+                        document.getElementById('wI2').innerHTML = recoveryTime + " mins is your estimated recovery time. Looking good! Enjoy your next workout.";
+                    }
+                }
+                else if (gender == 'female' || 'Female') {
+                    if (recoveryTime > 225) {
+                        document.getElementById('wI2').innerHTML = recoveryTime + " mins is your estimated recovery time. This is quite high, make sure to exercise more often!";
+                    }
+                    else {
+                        document.getElementById('wI2').innerHTML = recoveryTime + " mins is your estimated recovery time. Looking good! Enjoy your next workout.";
+                    }
+                }
+            }
+
+                        
+            
+            
+        </script>
+
+        <h3 class="subHeading">Improving Wellbeing</h3>
+        <h1 class="heading">What-If Questions</h1>
+        <p class="subText">Two hypothetical situations answered by the data gathered by this embedded system.</p>
+        <div class="whatIf">
+            <h2 class="whatIfText">Question 1</h2>
+            <p class="whatIfText">
+                <b>What If the user wished to take a break?</b>
+            </p>
+            <p id="wI1"></p>
+        </div>
+        <div class="whatIf">
+            <h2 class="whatIfText">Question 2</h2>
+            <p class="whatIfText">
+                <b>What If the user wished for a recovery time estimate?</b>
+            </p>
+            <p id="wI2"></p>
+        </div>
+    </div>
+
+</body>
+</html>

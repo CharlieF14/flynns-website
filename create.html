@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <link rel="stylesheet" href="projectHomeStyle (1).css">
+    <title>Create Section</title>
+    </head>
+    <body>
+    <div class="background"></div>
+    <div class="frontContent">
+        <p>
+            <ul class="navbar">
+                <li><a href="projectHome.html">Meeting The Brief</a></li>
+                <li><a href="investigation.html">Investigation</a></li>
+                <li><a href="planDesign.html">Plan & Design</a></li>
+                <li class="currentpage"><a href="create.html">Create</a></li>
+                <li><a href="whatIfQuestions.html">What-If Questions</a></li>
+                <li><a href="graphicalRepresentation.html">Graphed Data</a></li>
+                <li><a href="evaluation.html">Evaluation</a></li>
+            </ul>
+        </p>
+        <h1 class="title">Create</h1>
+        <div class="bodyText">
+        </div>
+        <div class = 'weeklyLog'>
+            <h3 class="heading1">Weekly Log:</h3>
+                <p>
+                    <h4 class="weeks"><u>Week 1:</u></h4>
+                    <p class="weekContent">Was given the brief and started looking at different embedded systems to inspire my own. Taking inspiration from my own devices, I decided to look into the concept of a heart rate monitor for the duration of the user’s workout. This could then also allow me to calculate other data to do with the user's physical health.</p>
+                </p>
+                <p>
+                    <h4 class="weeks"><u>Week 2:</u></h4>
+                    <p class="weekContent">Decided on my system and started listing different requirements that would be involved in my project. I also completed my investigation and created some code that would send the data from my microbit to firebase, starting with my digital input of whether it has been started or finished.</p>
+                </p>
+                <p>
+                    <h4 class="weeks"><u>Week 3:</u></h4>
+                    <p class="weekContent">On the third week I started my design plan. I firstly went through my design in detail explaining how the system worked. Then I created a flowchart to show how my project runs in a simple manner. After that, I used thinkercad to make a model of my embedded system.</p>
+                </p>
+                <p>
+                    <h4 class="weeks"><u>Week 4:</u></h4>
+                    <p class="weekContent">Worked on thinking about implementing user feedback and any other systems I would need. Also thought about the what-if questions and weather my system would be able to answer them or not.</p>
+                </p>
+                <p>
+                    <h4 class="weeks"><u>Week 5:</u></h4>
+                    <p class="weekContent">In the fifth week, I used microsoft make code to test different code that could work on the microbit. After running through many different iterations I finally settled on one.</p>
+                </p>
+                <p>
+                    <h4 class="weeks"><u>Week 6:</u></h4>
+                    <p class="weekContent">In the sixth week I moved away from the microbit and decided to work on some css elements for my webpage, as I wished to make it easier to read the segments of the brief.</p>
+                </p>
+                <p>
+                    <h4 class="weeks"><u>Week 7:</u></h4>
+                    <p class="weekContent">Worked on the microbit, editing the code from week 5 by focusing on how to read in rapid results from the pulse sensor</p>
+                </p>
+                <p>
+                    <h4 class="weeks"><u>Week 8:</u></h4>
+                    <p class="weekContent">After the micro bit had been finalised, moved onto Thonny in order to read in the microbit’s data and store it in Firebase Realtime Database.</p>
+                </p>
+                <p>
+                    <h4 class="weeks"><u>Week 9:</u></h4>
+                    <p class="weekContent">Worked on the ChartJS code to visually display the results gotten from the pulse rate sensor, reading them in from Firebase and automatically updating the graph with new data.</p>
+                </p>
+                <p>
+                    <h4 class="weeks"><u>Week 10:</u></h4>
+                    <p class="weekContent">Having finished the coding aspects, moved onto creating the video.</p>
+                </p>
+                <p>
+                    <h4 class="weeks"><u>Week 11:</u></h4>
+                    <p class="weekContent">Brushed up on all the code, testing different data and making sure the validation worked.</p>
+                </p>
+                <p>
+                    <h4 class="weeks"><u>Week 12:</u></h4>
+                    <p class="weekContent">Finalised editing the video and checked all write ups to make sure they fit the brief.</p>
+                </p>
+                <br>
+
+                <h3 class="heading">Unit Testing</h3>
+                <table class="weekContent">
+                    <tr>
+                        <th>Test</th>
+                        <th>Input</th>
+                        <th>Expected Output</th>
+                        <th>Actual Output</th>
+                    </tr>
+                    <tr>
+                        <td>Data-types other than string used for name: </td>
+                        <td>3</td>
+                        <td>'Please enter a valid name: '</td>
+                        <td>'Please enter a valid name: '</td>
+                    </tr>
+                    <tr>
+                        <td>Correct data-type for name: </td>
+                        <td>John</td>
+                        <td>'Hello John'</td>
+                        <td>'Hello John'</td>
+                    </tr>
+                    <tr>
+                        <td>Incorrect data-type for gender: </td>
+                        <td>6</td>
+                        <td>'Please enter a string: '</td>
+                        <td>'Please enter a string: '</td>
+                    </tr>
+                    <tr>
+                        <td>Correct data-type for gender: </td>
+                        <td>Female</td>
+                        <td>'You are female'</td>
+                        <td>'You are female'</td>
+                    </tr>
+                    <tr>
+                        <td>Choice = userInput()</td>
+                        <td>1</td>
+                        <td>'Please enter the length of your break:'</td>
+                        <td>'Please enter the length of your break:'</td>
+                    </tr>
+                    <tr>
+                        <td>Choice = userInput()</td>
+                        <td>2</td>
+                        <td>'Please enter the length of your workout:'</td>
+                        <td>'Please enter the length of your workout:'</td>
+                    </tr>
+                    <tr>
+                        <td>Choice2 = userInput()</td>
+                        <td>1</td>
+                        <td>'Please enter the length of your workout:'</td>
+                        <td>'Please enter the length of your workout:'</td>
+                    </tr>
+                    <tr>
+                        <td>Choice2 = userInput()</td>
+                        <td>0</td>
+                        <td>(Only what if 1 will run)</td>
+                        <td>(Only what if 1 ran)</td>
+                    </tr>
+                    <tr>
+                        <td>Choice3 = userInput()</td>
+                        <td>1</td>
+                        <td>'Please enter the length of your break:'</td>
+                        <td>'Please enter the length of your break:'</td>
+                    </tr>
+                    <tr>
+                        <td>Bpm is over 180: </td>
+                        <td>193</td>
+                        <td>Your average heart rate looks quite high, maybe try to lower the intensity of your workout.</td>
+                        <td>Your average heart rate looks quite high, maybe try to lower the intensity of your workout.</td>
+                    </tr>
+                    <tr>
+                        <td>Bpm is under 180: </td>
+                        <td>86</td>
+                        <td>Your average heart rate looks looks good, your are on the right track. Keep at it!</td>
+                        <td>Your average heart rate looks looks good, your are on the right track. Keep at it!</td>
+                    </tr>
+                </table>
+                <br>
+        
+                <h3 class="heading">Problems Faced:</h3>
+                <p class="weekContent">A major problem that I faced during this project was spouts of corrupted data that my microbit would send to the serial port. This would cause the python program to be unable to decode the data meaning nothing would be sent to the database. After searching online and various tests, it was found that this could be solved by disconnecting the microbit from the microsoft make code website. Once this was done the microbit could send data perfectly. My guess that because of the multiple connections the microbit was strugglin to send the data to both places at once.</p>
+
+                <h3 class="heading">Key Code:</h3>
+                <p class="weekContent">While there were many pieces of code that I deemed to be incredibly important to my model, in my opinion the most important was definitely the python code that begins my system. This code not only connects to both the microbit and firebase, but also collects and decodes key data, while also running calculations on it in order to format it in a more user-friendly way.</p>
+                <img src="Key code.PNG" alt="Key Code" class="keyCode">
+                
+            </div>
+    </div>
+    
+    </body>
+</html>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="projectHomeStyle (1).css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+    <title>Data in Graphical Format</title>
+</head>
+<body>
+    <div class="background"></div>
+    <div class="frontContent">
+        <p>
+            <ul class="navbar">
+                <li><a href="projectHome.html">Meeting The Brief</a></li>
+                <li><a href="investigation.html">Investigation</a></li>
+                <li><a href="planDesign.html">Plan & Design</a></li>
+                <li><a href="create.html">Create</a></li>
+                <li><a href="whatIfQuestions.html">What-If Questions</a></li>
+                <li class="currentpage"><a href="graphicalRepresentation.html">Graphed Data</a></li>
+                <li><a href="evaluation.html">Evaluation</a></li>
+            </ul>
+        </p>
+    </div>
+    <div id="livegraph">
+        <canvas id="timeChart" class="heartGraph" style="width: 50%; max-width: 75%; margin-left: 70px;"></canvas>
+    </div>
+
+    <script type="module">
+
+      var userName = ''
+
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyC1SMgtN253hK35hD3JDqZWRgQJHNMLg1Y",
+            authDomain: "charlie-s-project-c04fe.firebaseapp.com",
+            databaseURL: "https://charlie-s-project-c04fe-default-rtdb.europe-west1.firebasedatabase.app",
+            projectId: "charlie-s-project-c04fe",
+            storageBucket: "charlie-s-project-c04fe.appspot.com",
+            messagingSenderId: "437715420506",
+            appId: "1:437715420506:web:51f13472cb9f2f48455f63",
+            measurementId: "G-R18CFPN6QT"
+        };
+
+        const app = initializeApp(firebaseConfig);
+
+        let array = [];
+        import { getDatabase, ref, onChildAdded } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js";
+
+        const ctx = document.getElementById('timeChart');
+        const db = getDatabase();
+        const dbRef = ref(db);
+        const commentsRef = ref(db, "hr_log/");
+
+
+        onChildAdded(commentsRef, (data) => {
+        var date = new Date(data.key * 1000)
+        let mm = date.getMonth() + 1;
+        let dd = date.getDate();
+        let hr = date.getHours();
+        let mn = date.getMinutes();
+        let sc = date.getSeconds();
+
+        array.push(data.val().BeatsPerMin);
+        avgTime(array)
+
+        userName = data.val().User;;
+        
+        if (dd < 10) dd = '0' + dd;
+        if (mm < 10) mm = '0' + mm;
+        if (mn < 10) mn = '0' + mn;
+
+        const formatteddate = dd + '_' + mm + ' ' + hr +':'+ mn +':'+ sc;
+
+        chart.data.labels.push(formatteddate);
+        chart.data.datasets[0].data.push(data.val().BeatsPerMin);
+
+        chart.update();  
+        
+         });
+
+         function avgTime(a){
+         let avg = 0;
+         for (let i = 0; i< a.length; i++){
+          avg = a[i] + avg;
+         }
+         avg = avg / a.length;
+         avg = parseInt(avg);
+
+         if(avg >= 180){
+          document.getElementById('averages').innerHTML=avg + " was your average heart rate in beats per minute for the duration of your workout. Your average heart rate looks quite high, maybe try to lower the intensity of your workout.";
+         }
+         else{
+          document.getElementById('averages').innerHTML=avg + " was your average heart rate in beats per minute for the duration of your workout. Your average heart rate looks looks good, your are on the right track. Keep at it!";
+         }
+        }
+
+         var chart = new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: [], 
+        datasets: [{
+          label: 'Workout BPM',
+          data: [],
+          borderWidth: 1
+        }]
+      },
+      options: {
+        title: {
+          display: true,
+          text: userName
+        },
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    });
+           
+    </script>
+
+    <div class="analysisComponent">
+      <p id="averages"></p>
+    </div>
+
+</body>
+</html>
