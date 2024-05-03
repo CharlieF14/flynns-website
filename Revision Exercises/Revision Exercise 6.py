@@ -22,5 +22,9 @@ for i in message:
     
     uni1 = chr(asc1)
     lis.append(uni1)
-
-print(f'Decoded Message: {lis}')
+    
+decode = ''
+for i in lis:
+    decode = decode + i
+    
+print(f'Decoded Message: {decode}')
